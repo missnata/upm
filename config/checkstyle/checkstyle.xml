@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Puppy Crawl//DTD Check Configuration 1.1//EN"
+        "http://www.puppycrawl.com/dtds/configuration_1_1.dtd">
+
+<module name="Checker">
+
+    <module name="FileLength">
+        <property name="max" value="500"/>
+    </module>
+
+    <module name="TreeWalker">
+
+        <!-- code layout -->
+        <module name="NeedBraces"/>
+        <module name="OperatorWrap"/>
+
+        <!-- whitespace settings -->
+        <module name="NoWhitespaceAfter"/>
+        <module name="NoWhitespaceBefore"/>
+        <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround"/>
+
+        <!-- JLS -->
+        <module name="RedundantModifier"/>
+        <module name="ModifierOrder"/>
+        <module name="UpperEll"/>
+
+        <!-- avoid inner assignments -->
+        <module name="InnerAssignment"/>
+
+        <!-- don't allow imports from the sun.* package hierarchy -->
+        <module name="IllegalImport"/>
+
+        <!-- simplify your code -->
+        <module name="RedundantImport"/>
+        <module name="UnusedImports"/>
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SimplifyBooleanReturn"/>
+
+        <!-- flag reminder comments -->
+        <module name="TodoComment"/>
+
+        <!-- enforce length limits, different settings for method and ctor length -->
+        <module name="LineLength">
+            <property name="max" value="140"/>
+        </module>
+        <module name="MethodLength">
+            <property name="tokens" value="METHOD_DEF"/>
+            <property name="max" value="100"/>
+        </module>
+
+
+        <!-- Item 4 - Avoid creating duplicate objects -->
+        <module name="IllegalInstantiation">
+            <property name="classes" value="java.lang.Boolean, java.lang.String"/>
+        </module>
+
+        <!-- Item 8 - Always override hashCode when you override equals -->
+        <module name="EqualsHashCode"/>
+
+        <!-- Item 12 - Make all fields private -->
+        <module name="VisibilityModifier"/>
+
+        <!-- Item 17 - Use interfaces only to define types -->
+        <module name="InterfaceIsType"/>
+
+        <!-- Item 25 - Design method signatures carefully -->
+        <!-- Avoid long parameter lists -->
+        <module name="ParameterNumber">
+            <property name="max" value="3"/>
+        </module>
+
+        <!-- Item 38 - Adhere to generally accepted naming conventions -->
+        <module name="PackageName">
+            <!-- no uppercase letters, between 2 and 8 characters -->
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]{1,7})*$"/>
+        </module>
+        <module name="TypeName"/>
+        <module name="ConstantName"/>
+        <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+
+        <!-- Item 47 - Don't ignore exceptions -->
+        <module name="EmptyBlock">
+            <property name="tokens" value="LITERAL_CATCH"/>
+            <!-- require a comment, change to stmt to require a statement -->
+            <property name="option" value="text"/>
+        </module>
+
+    </module>
+
+</module>
